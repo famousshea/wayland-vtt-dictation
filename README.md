@@ -5,7 +5,7 @@ A lightweight, local voice-to-text dictation tool for Wayland (Ubuntu 25.10).
 ## Features
 - **Headless & Fast:** No windows, just system notifications and audible cues.
 - **Wayland Compatible:** Uses `ydotool` for virtual keyboard input and `wl-copy` for clipboard.
-- **Privacy First:** 100% local transcription using Vosk/Faster-Whisper.
+- **High-Quality Transcription:** Uses `Faster-Whisper` (Base model) for punctuated, local transcription.
 - **AI-Ready:** Prefixes all transcribed text with `(voice to text input) `.
 
 ## Prerequisites
@@ -28,7 +28,7 @@ A lightweight, local voice-to-text dictation tool for Wayland (Ubuntu 25.10).
    ```bash
    python3 -m venv venv
    source venv/bin/activate
-   pip install vosk sounddevice numpy
+   pip install faster-whisper sounddevice numpy
    ```
 4. Start the `ydotool` daemon (required for virtual keyboard input):
    ```bash
@@ -36,6 +36,6 @@ A lightweight, local voice-to-text dictation tool for Wayland (Ubuntu 25.10).
    ```
 
 ## Usage
-Map a global keyboard shortcut (e.g., `Super+Shift+V`) in GNOME Settings to run the `dictate.py` script.
+Map a global keyboard shortcut (e.g., `Super+R`) in GNOME Settings to run the `dictate.py` script.
 - **First Press:** Starts recording. Notification "Recording Start" appears.
-- **Second Press:** Stops recording, transcribes, and types the text into your active application.
+- **Second Press:** Stops recording, transcribes (presents a "Transcribing..." notification), and types the punctuated text into your active application.
